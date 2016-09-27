@@ -36,7 +36,7 @@ var server = http.createServer(function(request,response){
 		console.log(state=10)
 		response.end()
 	} else {
-		response.writeHead(200,{'Content-Type': 'text/html'});
+		response.writeHead(404,{'Content-Type': 'text/plain'});
 		response.write('<h1>There is an error, can\'t load the data </h1>');
 	}
 });

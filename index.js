@@ -5,8 +5,8 @@ var state = 10;
 var server = http.createServer(function(request,response){
 	
 	if (request.url === '/') {
-		fs.createReadStream(__dirname + '/state.html').pipe(response);
-		response.write('<h1>State is '+state+'</h1>');
+		response.writeHead(200,{'Content-Type':'text/html'});
+		response.write('<h1>State is '+(state=10)+'</h1>');
 		response.end();
 	}
 	

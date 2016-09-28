@@ -12,7 +12,7 @@ var server = http.createServer(function(request,response){
 	
 	 else if (request.url === '/state') {
 		response.writeHead(200,{'Content-Type':'text/html'});
-		response.write('<h1>State is '+state+'</h1>');
+		response.write('<h1>State is '+(state=10)+'</h1>');
 		console.log(state=10)
 		response.end();
 	} 

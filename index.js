@@ -4,18 +4,11 @@ var port = 8080;
 var state = 10;
 var server = http.createServer(function(request,response){
 	
-	if (request.url === '/') {
+	if (request.url === '/' || request.url === '/state' || request.url === '/reset') {
 		response.writeHead(200,{'Content-Type':'text/html'});
 		response.write('<h1>State is '+(state=10)+'</h1>');
 		response.end();
 	}
-	
-	 else if (request.url === '/state') {
-		response.writeHead(200,{'Content-Type':'text/html'});
-		response.write('<h1>State is '+(state=10)+'</h1>');
-		console.log(state=10)
-		response.end();
-	} 
 	
 	else if (request.url==='/add') {
 		response.writeHead(200, {'Content-Type': 'text/html'});
@@ -31,12 +24,7 @@ var server = http.createServer(function(request,response){
 		response.end()
 	}
 	
-	else if (request.url === '/reset') {
-		response.writeHead(200,{'Content-Type': 'text/html'});
-		response.write('<h1>State is '+(state=10)+'</h1>');
-		console.log(state=10)
-		response.end()
-	} else {
+	else {
 		response.writeHead(404,{'Content-Type': 'text/html'});
 		response.write('404,There is an error, can\'t load the data');
 	}

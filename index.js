@@ -7,6 +7,7 @@ var server = http.createServer(function(request,response){
 	if (request.url === '/' || request.url === '/state' || request.url === '/reset') {
 		response.writeHead(200,{'Content-Type':'text/html'});
 		response.write('<h1>State is '+(state=10)+'</h1>');
+		console.log(state)
 		response.end();
 	}
 	

@@ -38,7 +38,7 @@ var server = http.createServer(function(request,response){
 		response.end()
 	} else {
 		response.writeHead(404,{'Content-Type': 'text/plain'});
-		response.write('<h1>There is an error, can\'t load the data </h1>');
+		response.write('There is an error, can\'t load the data');
 	}
 });
 

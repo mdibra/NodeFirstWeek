@@ -17,7 +17,7 @@ var server = http.createServer(function(request,response){
 		response.end()
 	} 
 	
-	else if (request.url === '/remove') {
+	else if (request.url === '/subtract') {
 		response.writeHead(200, {'Content-Type': 'text/html'});
 		response.write('<h1>State is '+(state=state-1)+'</h1>');
 		console.log(state)

@@ -21,6 +21,14 @@ function removeNumber(response) {
 	console.log(state)
 	response.end()
 }
+
+function currentState(response) {
+	response.writeHead(200, {'Content-Type': 'text/html'});
+	response.write('<h1>State is '+(state)+'</h1>');
+	console.log(state)
+	response.end()
+	
+}
 function send404(response) {
 	response.writeHead(404,{'Content-Type': 'text/html'});
 	response.write('404,There is an error, can\'t load the data');
@@ -28,7 +36,7 @@ function send404(response) {
 
 function serverFunction(request,response){
 	
-	if (request.url === '/' || request.url === '/state' || request.url === '/reset') {
+	if (request.url === '/' || request.url === '/reset') {
 		stateNumber(response);
 	}
 	
@@ -38,6 +46,10 @@ function serverFunction(request,response){
 	
 	else if (request.url === '/subtract') {
 		removeNumber(response);
+	}
+	
+	else if (request.url === '/state') {	
+		currentState(response);
 	}
 	
 	else {

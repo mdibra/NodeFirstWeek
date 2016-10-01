@@ -49,6 +49,6 @@ function portFunction(error){
 		console.log(error)
 	} else {console.log('listening on ', port)}
 }
-var server = http.createServer(serverFunction).listen(port, portFunction);
+http.createServer(serverFunction).listen(port, portFunction);
 
 

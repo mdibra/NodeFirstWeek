@@ -26,7 +26,7 @@ function send404(response) {
 	response.write('404,There is an error, can\'t load the data');
 }
 
-var server = http.createServer(function(request,response){
+function serverFunction(request,response){
 	
 	if (request.url === '/' || request.url === '/state' || request.url === '/reset') {
 		stateNumber(response);
@@ -43,8 +43,9 @@ var server = http.createServer(function(request,response){
 	else {
 		send404(response);
 	}
-});
+}
 
+var server = http.createServer(serverFunction);
 server.listen(port, function(error){
 	if (error) {
 		console.log(error)
